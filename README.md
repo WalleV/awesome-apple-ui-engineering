@@ -4,8 +4,6 @@
 
 > A curated field guide to production SwiftUI, UIKit, and AppKit engineering.
 
-**Status:** v0.1 candidate, containing 72 selected resources and 8 watchlist candidates. Every entry was reviewed on 2026-07-17 against its first-party project page or Apple documentation. This edition favors a smaller, explainable set over exhaustive coverage.
-
 ## Contents
 
 - [Selection Policy](#selection-policy)
