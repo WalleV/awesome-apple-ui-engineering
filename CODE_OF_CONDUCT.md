@@ -26,4 +26,3 @@ This code applies in repository issues, pull requests, reviews, and other projec
 Report sensitive concerns privately through a contact method listed on the [maintainer's GitHub profile](https://github.com/WalleV). Do not post sensitive personal information in a public issue. If no private contact method is available, open a minimal issue requesting a private reporting channel without describing the incident publicly.
 
 Reports will be considered as promptly and confidentially as practical. Retaliation against someone who raises a good-faith concern is not acceptable.
-
