@@ -1,0 +1,119 @@
+name: Suggest a resource
+description: Propose a production-focused Apple UI engineering resource.
+title: "[Resource]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for the suggestion. Please read the Selection Policy and CONTRIBUTING.md before submitting. Strong proposals explain the engineering decision the resource helps make.
+
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      placeholder: Project, documentation page, talk, or case study
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Canonical URL
+      placeholder: https://...
+    validations:
+      required: true
+
+  - type: input
+    id: section
+    attributes:
+      label: Proposed section
+      description: Name the existing section that best matches the resource.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Engineering problem
+      description: What production UI decision or problem does this resource address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: entry
+    attributes:
+      label: Suggested entry
+      description: Provide a short description, Use when, and Watch for.
+      placeholder: |
+        Description:
+        Use when:
+        Watch for:
+    validations:
+      required: true
+
+  - type: input
+    id: frameworks
+    attributes:
+      label: Frameworks
+      placeholder: SwiftUI, UIKit, AppKit
+
+  - type: input
+    id: platforms
+    attributes:
+      label: Platforms
+      placeholder: iOS, iPadOS, macOS, visionOS
+
+  - type: input
+    id: requirements
+    attributes:
+      label: Requirements
+      placeholder: Deployment, toolchain, or hardware requirements
+
+  - type: input
+    id: license
+    attributes:
+      label: License
+      description: Required for distributed code; otherwise enter Not applicable.
+      placeholder: MIT, Apache-2.0, Not applicable
+    validations:
+      required: true
+
+  - type: input
+    id: license_evidence
+    attributes:
+      label: License evidence URL
+      description: Link to the upstream license file or official licensing page when code is distributed.
+      placeholder: https://...
+
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Relationship disclosure
+      description: Do you, your employer, or a client maintain or benefit from this resource?
+      options:
+        - No relationship
+        - Yes — I will explain below
+    validations:
+      required: true
+
+  - type: textarea
+    id: relationship_details
+    attributes:
+      label: Relationship details
+      description: Required when you selected Yes above.
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched the README and did not find the same URL or an equivalent recommendation.
+          required: true
+        - label: I read the Selection Policy and CONTRIBUTING.md.
+          required: true
+        - label: The URL and factual claims come from first-party or authoritative sources.
+          required: true
+        - label: This proposal is based on engineering value, not popularity alone.
+          required: true
+
