@@ -17,15 +17,14 @@
 - [Performance, Debugging, and Inspection](#performance-debugging-and-inspection)
 - [macOS and AppKit Engineering](#macos-and-appkit-engineering)
 - [Sample Apps and Case Studies](#sample-apps-and-case-studies)
-- [Watchlist](#watchlist)
 
 ## Selection Policy
 
-Resources in the main list should have a clear engineering purpose, first-party documentation, an identifiable license when code is distributed, and evidence that they remain useful with current Apple-platform development. Recent commits are a signal, not an absolute requirement: small, finished libraries may be stable without frequent changes.
+Resources in this guide should have a clear engineering purpose, first-party documentation, an identifiable license when code is distributed, and evidence that they remain useful with current Apple-platform development. Recent commits are a signal, not an absolute requirement: small, finished libraries may be stable without frequent changes.
 
 Tags identify the primary UI frameworks, platforms, and licenses.
 
-The main list excludes generic Swift infrastructure, trivial visual demos, repositories without a usable license, and resources whose only differentiator is popularity.
+This guide excludes generic Swift infrastructure, trivial visual demos, repositories without a usable license, and resources whose only differentiator is popularity.
 
 ## Official Foundations
 
@@ -128,16 +127,3 @@ The main list excludes generic Swift infrastructure, trivial visual demos, repos
 - [IINA](https://github.com/iina/iina) - Mature AppKit media player demonstrating complex windowing, menus, preferences, keyboard/mouse interaction, localization, plugins, and native media UI. Its GPL-3.0 license and external media stack matter if code is reused. `AppKit` `macOS` `GPL-3.0`
 - [NetNewsWire](https://github.com/Ranchero-Software/NetNewsWire) - Long-running MIT-licensed macOS and iOS feed reader with shared modules, platform-specific interfaces, widgets, tests, themes, and a sizable native codebase. Study decisions in context instead of treating longevity as universal architecture guidance. `UIKit` `AppKit` `iOS` `macOS` `MIT`
 - [IceCubesApp](https://github.com/Dimillian/IceCubesApp) - Multiplatform Mastodon client built in SwiftUI with dedicated iPhone, iPad, macOS, visionOS, widget, and extension experiences. Its AGPL-3.0 license is important if adapting source, and product-specific tradeoffs should not be generalized blindly. `SwiftUI` `Multiplatform` `AGPL-3.0`
-
-## Watchlist
-
-Resources in this section are candidates, not recommendations. Each needs further review for maintenance, licensing, production evidence, or overlap with an already selected entry.
-
-- [SwiftUI Navigation Transitions](https://github.com/davdroman/swiftui-navigation-transitions) - Promising declarative custom navigation transitions and full-pan gestures, but still 0.x and coupled to behavior that can change between OS releases. `SwiftUI` `iOS` `MIT`
-- [Factory](https://github.com/hmlongco/Factory) - Actively maintained dependency-injection container with scopes and test overrides. It is useful, but generic DI sits just outside this list's UI-engineering focus and version 3 introduced package/module migration work. `Swift` `MIT`
-- [Textual](https://github.com/gonzalezreal/textual) - Modern SwiftUI rich-text and Markdown direction with selection, attachments, math, code highlighting, and Dynamic Type. It is a young 0.x successor to maintenance-mode MarkdownUI and needs more production evidence. `SwiftUI` `MIT`
-- [ViewInspector](https://github.com/nalexn/ViewInspector) - Enables structural inspection and interaction in SwiftUI unit tests. Reflection and per-API coverage can lag framework releases, so validate it against the exact Xcode/SwiftUI matrix before promotion. `SwiftUI` `MIT`
-- [SwiftUIKitView](https://github.com/AvdLee/SwiftUIKitView) - Small wrappers for using and previewing UIKit views in SwiftUI, but its last tagged release is old and native representable/hosting patterns cover much of the need. `SwiftUI` `UIKit` `MIT`
-- [DifferenceKit](https://github.com/ra1028/DifferenceKit) - Well-known diffing algorithm with broad collection support, yet its repository activity is old and modern UIKit/AppKit already provide diffable data-source options for many cases. `UIKit` `AppKit` `Apache-2.0`
-- [DSFAppKitBuilder](https://github.com/dagronf/DSFAppKitBuilder) - SwiftUI-like DSL for programmatic AppKit and Auto Layout, especially for older macOS targets. Its custom abstraction and low recent activity require a maintenance and migration review. `AppKit` `MIT`
-- [FluidMenuBarExtra](https://github.com/wadetregaskis/FluidMenuBarExtra) - Adds animated sizing and native-feeling behavior around menu-bar popovers, but has seen little recent work and its workarounds need verification on current macOS releases. `SwiftUI` `AppKit` `MIT`
