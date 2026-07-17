@@ -1,0 +1,22 @@
+changelog:
+  exclude:
+    labels:
+      - skip-changelog
+    authors:
+      - dependabot
+  categories:
+    - title: Added resources
+      labels:
+        - resource
+    - title: Corrections
+      labels:
+        - correction
+    - title: Project maintenance
+      labels:
+        - documentation
+        - automation
+        - maintenance
+    - title: Other changes
+      labels:
+        - "*"
+

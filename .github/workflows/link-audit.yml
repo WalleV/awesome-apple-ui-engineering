@@ -1,0 +1,89 @@
+name: Link Audit
+
+"on":
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * 2"
+  pull_request:
+    paths:
+      - .github/workflows/link-audit.yml
+      - .lychee.toml
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: link-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    name: audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Check Markdown links
+        id: lychee
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.8.0
+        with:
+          args: >-
+            --config .lychee.toml
+            --root-dir "${{ github.workspace }}"
+            './**/*.md'
+          fail: false
+          failIfEmpty: true
+          format: markdown
+          jobSummary: true
+          output: lychee/out.md
+          token: ${{ github.token }}
+
+      - name: Update maintenance issue
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXIT_CODE: ${{ steps.lychee.outputs.exit_code }}
+          REPORT_FILE: lychee/out.md
+          REPOSITORY: ${{ github.repository }}
+          ISSUE_TITLE: Automated link audit
+        run: |
+          set -euo pipefail
+
+          issue_number="$(
+            gh issue list \
+              --repo "$REPOSITORY" \
+              --state all \
+              --search '"Automated link audit" in:title' \
+              --json number,title \
+              --jq '.[] | select(.title == "Automated link audit") | .number' \
+              | head -n 1
+          )"
+
+          if [[ "$EXIT_CODE" != "0" ]]; then
+            if [[ ! -s "$REPORT_FILE" ]]; then
+              echo "Lychee reported a failure but did not create $REPORT_FILE." >&2
+              exit 1
+            fi
+
+            if [[ -n "$issue_number" ]]; then
+              gh issue reopen "$issue_number" --repo "$REPOSITORY" || true
+              gh issue edit "$issue_number" --repo "$REPOSITORY" --body-file "$REPORT_FILE"
+            else
+              gh issue create \
+                --repo "$REPOSITORY" \
+                --title "$ISSUE_TITLE" \
+                --body-file "$REPORT_FILE"
+            fi
+          elif [[ -n "$issue_number" ]]; then
+            state="$(gh issue view "$issue_number" --repo "$REPOSITORY" --json state --jq '.state')"
+            if [[ "$state" == "OPEN" ]]; then
+              gh issue close "$issue_number" \
+                --repo "$REPOSITORY" \
+                --comment "The scheduled link audit is passing again."
+            fi
+          fi
+
