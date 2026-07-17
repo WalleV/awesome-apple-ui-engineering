@@ -6,6 +6,8 @@
 
 This guide is for engineers building, modernizing, or maintaining production Apple-platform interfaces with SwiftUI, UIKit, AppKit, or a mix of them.
 
+For Android UI engineering, see [Awesome Android UI Engineering](https://github.com/WalleV/awesome-android-ui-engineering).
+
 ## Contents
 
 - [Start Here](#start-here)
