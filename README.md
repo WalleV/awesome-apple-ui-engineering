@@ -17,6 +17,7 @@
 - [Performance, Debugging, and Inspection](#performance-debugging-and-inspection)
 - [macOS and AppKit Engineering](#macos-and-appkit-engineering)
 - [Sample Apps and Case Studies](#sample-apps-and-case-studies)
+- [License](#license)
 
 ## Selection Policy
 
@@ -127,3 +128,9 @@ This guide excludes generic Swift infrastructure, trivial visual demos, reposito
 - [IINA](https://github.com/iina/iina) - Mature AppKit media player demonstrating complex windowing, menus, preferences, keyboard/mouse interaction, localization, plugins, and native media UI. Its GPL-3.0 license and external media stack matter if code is reused. `AppKit` `macOS` `GPL-3.0`
 - [NetNewsWire](https://github.com/Ranchero-Software/NetNewsWire) - Long-running MIT-licensed macOS and iOS feed reader with shared modules, platform-specific interfaces, widgets, tests, themes, and a sizable native codebase. Study decisions in context instead of treating longevity as universal architecture guidance. `UIKit` `AppKit` `iOS` `macOS` `MIT`
 - [IceCubesApp](https://github.com/Dimillian/IceCubesApp) - Multiplatform Mastodon client built in SwiftUI with dedicated iPhone, iPad, macOS, visionOS, widget, and extension experiences. Its AGPL-3.0 license is important if adapting source, and product-specific tradeoffs should not be generalized blindly. `SwiftUI` `Multiplatform` `AGPL-3.0`
+
+## License
+
+© 2026 WalleV. Except where otherwise noted, the original text and curation in this repository are licensed under the [Creative Commons Attribution 4.0 International License](LICENSE).
+
+Linked projects, trademarks, logos, and other third-party materials remain subject to their respective licenses and rights.
