@@ -1,0 +1,17 @@
+no_progress = true
+max_redirects = 10
+max_retries = 3
+max_concurrency = 8
+timeout = 30
+retry_wait_time = 2
+accept = ["200..=299", "403", "429"]
+scheme = ["https"]
+require_https = true
+include_fragments = false
+exclude_private = true
+exclude_link_local = true
+exclude_loopback = true
+include_mail = false
+host_concurrency = 2
+host_request_interval = "250ms"
+
